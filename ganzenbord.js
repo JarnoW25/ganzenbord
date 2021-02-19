@@ -1,3 +1,6 @@
+//voor de movement
+var redGamePiece, blueGamePiece, yellowGamePiece, greenGamePiece;
+var myBackground;
 //zorgen dat de dobbel knop gehide is
 beurtzien();
 //variabelen aanmaken
@@ -124,4 +127,220 @@ switch (spelervak[beurtTeller]) {
   }
   beurtzien();
 }
+}
+  function startGame() {
+    switch(aantalSpelers) {
+        case "2":
+            redGamePiece = new component(15, 15, "red", 90, 50 );
+            yellowGamePiece = new component(15, 15, "yellow", 90, 30);
+            blueGamePiece = new component(0, 0, "blue", 60, 50);
+            greenGamePiece = new component(0, 0, "green", 60, 30);
+        break;
+        case "3":
+            redGamePiece = new component(15, 15, "red", 90, 50 );
+            yellowGamePiece = new component(15, 15, "yellow", 90, 30);
+            blueGamePiece = new component(15, 15, "blue", 60, 50);
+            greenGamePiece = new component(0, 0, "green", 60, 30);
+        break;
+        case "4":
+            redGamePiece = new component(15, 15, "red", 90, 50 );
+            yellowGamePiece = new component(15, 15, "yellow", 90, 30);
+            blueGamePiece = new component(15, 15, "blue", 60, 50);
+            greenGamePiece = new component(15, 15, "green", 60, 30);
+        break;
+        default:
+        alert("dit spel is bedoelt om met 2-4 spelers te spelen, herlaad de pagina om het opnieuw in te vullen");
+    }
+
+    myBackground = new component(1000, 700, "guusenbord.png", 0, 0, "image");
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 1000;
+        this.canvas.height = 700;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    }
+}
+
+function component(width, height, color, x, y, type) {
+    this.type = type;
+    if (type == "image") {
+        this.image = new Image();
+        this.image.src = color;
+    }
+    this.width = width;
+    this.height = height;
+    this.speedX = 0;
+    this.speedY = 0;
+    this.x = x;
+    this.y = y;
+    this.update = function(){
+        ctx = myGameArea.context;
+        if (type == "image") {
+            ctx.drawImage( 
+                this.image, 
+                this.x, 
+                this.y,
+                this.width, 
+                this.height);
+        } else {
+            ctx.fillStyle = color;
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
+        this.newPos = function() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+        } 
+    }
+    //the width, heigth, etc. are defined with what the are so that you can have multiple components that arent the excect same but are already defined in line 20-23
+
+    //also the compenent is simply said the processor of this code, if you need an extra object or something you make it in function startgame, it drops through compenent and bob's your uncle, you object is made. all that's lef is the constant clean up in function updategamearea
+}
+
+function updateGameArea() {
+    myGameArea.clear();
+    myBackground.update();
+    redGamePiece.update();
+    redGamePiece.newPos();
+    yellowGamePiece.update();
+    yellowGamePiece.newPos();
+    blueGamePiece.update();
+    blueGamePiece.newPos();
+    greenGamePiece.update();
+    greenGamePiece.newPos();
+}
+
+function MyMovement() {
+        if (spelervak[beurtTeller] == 0 || 1 || 2 || 3 || 4 || 5 || 6 || 7 || 8 ) {
+                switch(aantalSpelers) {
+                    case "2":
+                        switch(beurtTeller)  {
+                            case 2:
+                            redGamePiece.speedY = uitkomstDb;
+                            break;
+                            case 1:
+                            yellowGamePiece.speedY = uitkomstDb;
+                            break;
+                            default:
+                                alert("uh oh, codewody dwid a widdwe woopsie");
+                        }
+                        console.log("geez go down")
+                    break;
+                    case "3":
+                        switch(beurtTeller)  {
+                            case 2:
+                            redGamePiece.speedY = uitkomstDb;
+                            break;
+                            case 3:
+                            yellowGamePiece.speedY = uitkomstDb;
+                            break;
+                            case 1:
+                            blueGamePiece.speedY = uitkomstDb;
+                            break;
+                            default:
+                                alert("uh oh, codewody dwid a widdwe woopsie");
+                        }
+                    break;
+                    case "4":
+                        switch(beurtTeller)  {
+                            case 2:
+                            redGamePiece.speedY = uitkomstDb;
+                            break;
+                            case 3:
+                            yellowGamePiece.speedY = uitkomstDb;
+                            break;
+                            case 4:
+                            blueGamePiece.speedY = uitkomstDb;
+                            break;
+                            case 1:
+                            greenGamePiece.speedY = uitkomstDb;
+                            break;
+                            default:
+                                alert("uh oh, codewody dwid a widdwe woopsie");
+                            }
+                        break;
+                        default:
+                            alert("uh oh, codewody dwid a bwig woopsie");
+                        }        
+                }
+        else if (spelervak[beurtTeller] == 9 || 10 || 11 || 12 || 13 || 14 || 15 || 16 || 17 || 18 || 19 || 20) {
+                    switch(aantalSpelers) {
+                        case "2":
+                            switch(beurtTeller)  {
+                                case 2:
+                                redGamePiece.speedY = uitkomstDb;
+                                break;
+                                case 1:
+                                yellowGamePiece.speedY = uitkomstDb;
+                                break;
+                                default:
+                                    alert("uh oh, codewody dwid a widdwe woopsie");
+                            }
+                        console.log("geez go right")
+                    break;
+                    case "3":
+                        switch(beurtTeller)  {
+                            case 2:
+                            redGamePiece.speedY = uitkomstDb;
+                            break;
+                            case 3:
+                            yellowGamePiece.speedY = uitkomstDb;
+                            break;
+                            case 1:
+                            blueGamePiece.speedY = uitkomstDb;
+                            break;
+                            default:
+                                alert("uh oh, codewody dwid a widdwe woopsie");
+                        }
+                    break;
+                    case "4":
+                        switch(beurtTeller)  {
+                            case 2:
+                            redGamePiece.speedY = uitkomstDb;
+                            break;
+                            case 3:
+                            yellowGamePiece.speedY = uitkomstDb;
+                            break;
+                            case 4:
+                            blueGamePiece.speedY = uitkomstDb;
+                            break;
+                            case 1:
+                            greenGamePiece.speedY = uitkomstDb;
+                            break;
+                            default:
+                                alert("uh oh, codewody dwid a widdwe woopsie");
+                        }
+                    break;
+                    default:
+                        alert("uh oh, codewody dwid a bwig woopsie");
+                    }
+        }
+}
+
+function MyStop() {
+  redGamePiece.speedY = 0;
+  redGamePiece.speedX = 0;
+  yellowGamePiece.speedY = 0;
+  yellowGamePiece.speedX = 0;
+  blueGamePiece.speedY = 0;
+  blueGamePiece.speedX = 0;
+  greenGamePiece.speedY = 0;
+  greenGamePiece.speedX = 0;
+}
+
+function dobbelgooien() {
+    beurt(3);
+    MyMovement();
+    setTimeout(MyStop, 2150);
 }
