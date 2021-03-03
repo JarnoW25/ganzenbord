@@ -1,6 +1,22 @@
+.header {
+  text-align: center;
+  background-color: licht;
+  border: solid black 3px;
+}
+
+.header h1{
+  color: #d9d9d9;
+}
+
+.header h2{
+  color: #e6ac00;
+}
+
 canvas {
   border:1px solid #d3d3d3;
   background-color: #f1f1f1;
+  margin-top: 6%;
+  float: left;
 }
 
  button {

@@ -7,13 +7,35 @@
     <title>ganzenbord</title>
   </head>
   <body>
-    <div class="bord">
-      <div id="beurt">
-        <button type="button" onclick="beurt()" name="beurt">dobbelsteen gooien</button>
-      </div>
-      <button type="button" onclick="beurtzien()" name="beurt">hide/unhide</button>
-      <button id="start" type="button" onclick="startGame()" name="startgame">start spel</button>
-        <script src="js/ganzenbord.js" type="text/javascript"></script>
+
+
+    <div class="header">
+      <h1>ganzenbord</h1>
+      <h2>deluxe</h2>
     </div>
-  </body>
+
+
+        <div class="container">
+          <div class="row align-items-start">
+          <div class="col-sm">
+          <div id="beurt">
+          <button type="button" onclick="beurt()" name="beurt">dobbelsteen gooien</button>
+          </div>
+          </div>
+          <div class="col-sm">
+          <button type="button" onclick="beurtzien()" name="beurt">hide/unhide</button>
+          </div>
+          <div class="col-sm">
+          <button id="start" type="button" onclick="startGame()" name="startgame">start spel</button>
+          </div>
+          </div>
+          </div>
+
+        <script src="js/ganzenbord.js" type="text/javascript"></script>
+
+      <div class="footer">
+
+      </div>
+
+    </body>
 </html>
