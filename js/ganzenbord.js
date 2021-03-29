@@ -222,124 +222,41 @@ function updateGameArea() {
     greenGamePiece.newPos();
 }
 
-function MyMovement() {
-                switch(aantalSpelers) {
-                    case "2":
-                        switch(beurtTeller)  {
-                            case 2:
-                            redGamePiece.speedY += uitkomstDb;
-                            break;
-                            case 1:
-                            yellowGamePiece.speedY += uitkomstDb;
-                            break;
-                            default:
-                                alert("uh oh, codewody dwid a widdwe woopsie");
-                        }
-                        console.log("geez go down")
+function MyMovement() {               
+                switch(beurtTeller) {
+                    case 2:
+                        redGamePiece.y = redGamePiece.y + uitkomstDb * 60;
+                        console.log(redGamePiece.y,"en", redGamePiece.x)
                     break;
-                    case "3":
-                        switch(beurtTeller)  {
-                            case 2:
-                            redGamePiece.speedY = uitkomstDb;
-                            break;
-                            case 3:
-                            yellowGamePiece.speedY = uitkomstDb;
-                            break;
-                            case 1:
-                            blueGamePiece.speedY = uitkomstDb;
-                            break;
-                            default:
-                                alert("uh oh, codewody dwid a widdwe woopsie");
-                        }
+                    case 1:
+                        yellowGamePiece.y = yellowGamePiece.y + uitkomstDb * 60;
+                        console.log(yellowGamePiece.y,"en", yellowGamePiece.x)
                     break;
-                    case "4":
-                        switch(beurtTeller)  {
-                            case 2:
-                            redGamePiece.speedY = uitkomstDb;
-                            break;
-                            case 3:
-                            yellowGamePiece.speedY = uitkomstDb;
-                            break;
-                            case 4:
-                            blueGamePiece.speedY = uitkomstDb;
-                            break;
-                            case 1:
-                            greenGamePiece.speedY = uitkomstDb;
-                            break;
-                            default:
-                                alert("uh oh, codewody dwid a widdwe woopsie");
-                            }
-                        break;
-                        default:
-                            alert("uh oh, codewody dwid a bwig woopsie");
-                        }        
-                // }
-        // else if (spelervak[beurtTeller] == 9 || 10 || 11 || 12 || 13 || 14 || 15 || 16 || 17 || 18 || 19 || 20) {
-        //             switch(aantalSpelers) {
-        //                 case "2":
-        //                     switch(beurtTeller)  {
-        //                         case 2:
-        //                         redGamePiece.speedY = uitkomstDb;
-        //                         break;
-        //                         case 1:
-        //                         yellowGamePiece.speedY = uitkomstDb;
-        //                         break;
-        //                         default:
-        //                             alert("uh oh, codewody dwid a widdwe woopsie");
-        //                     }
-        //                 console.log("geez go right")
-        //             break;
-        //             case "3":
-        //                 switch(beurtTeller)  {
-        //                     case 2:
-        //                     redGamePiece.speedY = uitkomstDb;
-        //                     break;
-        //                     case 3:
-        //                     yellowGamePiece.speedY = uitkomstDb;
-        //                     break;
-        //                     case 1:
-        //                     blueGamePiece.speedY = uitkomstDb;
-        //                     break;
-        //                     default:
-        //                         alert("uh oh, codewody dwid a widdwe woopsie");
-        //                 }
-        //             break;
-        //             case "4":
-        //                 switch(beurtTeller)  {
-        //                     case 2:
-        //                     redGamePiece.speedY = uitkomstDb;
-        //                     break;
-        //                     case 3:
-        //                     yellowGamePiece.speedY = uitkomstDb;
-        //                     break;
-        //                     case 4:
-        //                     blueGamePiece.speedY = uitkomstDb;
-        //                     break;
-        //                     case 1:
-        //                     greenGamePiece.speedY = uitkomstDb;
-        //                     break;
-        //                     default:
-        //                         alert("uh oh, codewody dwid a widdwe woopsie");
-        //                 }
-        //             break;
-        //             default:
-        //                 alert("uh oh, codewody dwid a bwig woopsie");
-        //             }
+                    case 3:
+                        blueGamePiece.y = blueGamePiece - uitkomstDb * 30;
+                    break;
+                    case 4:
+                        greenGamePiece.y = greenGamePiece - uitkomstDb * 30;
+                    break;
+                    default:
+                        alert(beurtTeller);
+                        } 
+                    console.log(beurtTeller);
         }
 
-function MyStop() {
-  redGamePiece.speedY = 0;
-  redGamePiece.speedX = 0;
-  yellowGamePiece.speedY = 0;
-  yellowGamePiece.speedX = 0;
-  blueGamePiece.speedY = 0;
-  blueGamePiece.speedX = 0;
-  greenGamePiece.speedY = 0;
-  greenGamePiece.speedX = 0;
-}
+// function MyStop() {
+//   redGamePiece.speedY = 0;
+//   redGamePiece.speedX = 0;
+//   yellowGamePiece.speedY = 0;
+//   yellowGamePiece.speedX = 0;
+//   blueGamePiece.speedY = 0;
+//   blueGamePiece.speedX = 0;
+//   greenGamePiece.speedY = 0;
+//   greenGamePiece.speedX = 0;
+// }
 
-function dobbelgooien() {
-    beurt(3);
-    MyMovement();
-    setTimeout(MyStop, 2150);
-}
+// function dobbelgooien() {
+//     beurt(3);
+//     MyMovement();
+//     setTimeout(MyStop, 2150);
+// }
