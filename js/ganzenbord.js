@@ -248,14 +248,50 @@ function MyMovement() {
                         // console.log(redGamePiece.y,"en", redGamePiece.x)
                     break;
                     case 1:
-                        yellowGamePiece.y = yellowGamePiece.y + uitkomstDb * 60;
+                    var iNum = iYellow + uitkomstDb;
+                    for (;iYellow <= iNum; iYellow++) {
+                        if (iYellow <= 9) {
+                                yellowGamePiece.y = yellowGamePiece.y + 60;
+                                console.log(yellowGamePiece.y,"en", yellowGamePiece.x);
+                                console.log("xoxo");
+                        }
+                        else if (iYellow >= 9) {
+                            yellowGamePiece.x = yellowGamePiece.x + 60;
+                            console.log(yellowGamePiece.y,"en", yellowGamePiece.x);
+                            console.log("yoyo");
+                        }
+                    }
                         // console.log(yellowGamePiece.y,"en", yellowGamePiece.x)
                     break;
                     case 3:
-                        blueGamePiece.y = blueGamePiece - uitkomstDb * 30;
+                    var iNum = iBlue + uitkomstDb;
+                    for (;iBlue <= iNum; iBlue++) {
+                        if (iBlue <= 9) {
+                                blueGamePiece.y = blueGamePiece.y + 60;
+                                console.log(blueGamePiece.y,"en", blueGamePiece.x);
+                                console.log("xoxo");
+                        }
+                        else if (iBlue >= 9) {
+                            blueGamePiece.x = blueGamePiece.x + 60;
+                            console.log(blueGamePiece.y,"en", blueGamePiece.x);
+                            console.log("yoyo");
+                        }
+                    }
                     break;
                     case 4:
-                        greenGamePiece.y = greenGamePiece - uitkomstDb * 30;
+                    var iNum = iGreen + uitkomstDb;
+                    for (;iGreen <= iNum; iGreen++) {
+                        if (iGreen <= 9) {
+                                greenGamePiece.y = greenGamePiece.y + 60;
+                                console.log(greenGamePiece.y,"en", greenGamePiece.x);
+                                console.log("xoxo");
+                        }
+                        else if (iGreen >= 9) {
+                            greenGamePiece.x = greenGamePiece.x + 60;
+                            console.log(greenGamePiece.y,"en", greenGamePiece.x);
+                            console.log("yoyo");
+                        }
+                    }
                     break;
                     default:
                         alert(beurtTeller);
