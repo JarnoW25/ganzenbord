@@ -222,15 +222,34 @@ function updateGameArea() {
     greenGamePiece.newPos();
 }
 
-function MyMovement() {               
+var iRed = 0;
+var iYellow = 0;
+var iBlue = 0;
+var iGreen = 0;
+
+function MyMovement() {
+               
                 switch(beurtTeller) {
                     case 2:
-                        redGamePiece.y = redGamePiece.y + uitkomstDb * 60;
-                        console.log(redGamePiece.y,"en", redGamePiece.x)
+                    var iNum = iRed + uitkomstDb;
+                    for (;iRed <= iNum; iRed++) {
+                        if (iRed <= 9) {
+                                redGamePiece.y = redGamePiece.y + 60;
+                                console.log(redGamePiece.y,"en", redGamePiece.x);
+                                console.log("xoxo");
+                        }
+                        else if (iRed >= 9) {
+                            redGamePiece.x = redGamePiece.x + 60;
+                            console.log(redGamePiece.y,"en", redGamePiece.x);
+                            console.log("yoyo");
+                        }
+                    }
+                        // redGamePiece.y = redGamePiece.y + uitkomstDb * 60;
+                        // console.log(redGamePiece.y,"en", redGamePiece.x)
                     break;
                     case 1:
                         yellowGamePiece.y = yellowGamePiece.y + uitkomstDb * 60;
-                        console.log(yellowGamePiece.y,"en", yellowGamePiece.x)
+                        // console.log(yellowGamePiece.y,"en", yellowGamePiece.x)
                     break;
                     case 3:
                         blueGamePiece.y = blueGamePiece - uitkomstDb * 30;
@@ -241,7 +260,8 @@ function MyMovement() {
                     default:
                         alert(beurtTeller);
                         } 
-                    console.log(beurtTeller);
+                    // console.log(beurtTeller);
+                    console.log(iRed ,"en", iNum);
         }
 
 // function MyStop() {
