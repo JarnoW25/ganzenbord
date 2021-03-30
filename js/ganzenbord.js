@@ -226,6 +226,9 @@ var iRed = 0;
 var iYellow = 0;
 var iBlue = 0;
 var iGreen = 0;
+//the variables above are to keep up with how far each player is, in the for command below it is used to point towards which ways the player will go
+//the iNum is to point where the player needs to go.
+//60 is added to the y and X of each player so it actually moves on screen
 
 function MyMovement() {
                
