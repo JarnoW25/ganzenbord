@@ -222,86 +222,148 @@ function updateGameArea() {
     greenGamePiece.newPos();
 }
 
-var iRed = 0;
-var iYellow = 0;
-var iBlue = 0;
-var iGreen = 0;
+var ired = 0;
+var iyellow = 0;
+var iblue = 0;
+var igreen = 0;
+var C;
+var N;
+
+function change() {
+    switch(beurtTeller) {
+        case 1:
+
+            C = yellowGamePiece;
+            N = iyellow;
+
+        break;
+        case 2:
+
+
+            C = redGamePiece;
+            N = ired;
+
+        break;
+        case 3:
+
+            C = blueGamePiece;
+            N = iblue;
+        break;
+        case 4:
+
+            C = greenGamePiece;
+            N = igreen;
+        break;
+        default:
+            alert("oh no");
+        }
+}
+
+
+
 //the variables above are to keep up with how far each player is, in the for command below it is used to point towards which ways the player will go
 //the iNum is to point where the player needs to go.
 //60 is added to the y and X of each player so it actually moves on screen
-
 function MyMovement() {
-               
-                switch(beurtTeller) {
-                    case 2:
-                    var iNum = iRed + uitkomstDb;
-                    for (;iRed <= iNum; iRed++) {
-                        if (iRed <= 9) {
-                                redGamePiece.y = redGamePiece.y + 60;
-                                console.log(redGamePiece.y,"en", redGamePiece.x);
-                                console.log("xoxo");
+                change();
+                    var iNum = N + uitkomstDb;
+                    for (;N
+                     <= iNum; N++) {
+                        if (N <= 9 || N > 38 && N <= 45 || N > 62 && N <= 65) {
+                            C.y = C.y + 50;
+                            // console.log(C.y,"en", C.x);
+                            // console.log("maxxo", N);
                         }
-                        else if (iRed >= 9) {
-                            redGamePiece.x = redGamePiece.x + 60;
-                            console.log(redGamePiece.y,"en", redGamePiece.x);
-                            console.log("yoyo");
+                        else if (N > 9 && N <= 20 || N > 45 && N <= 52 || N > 65 && N <= 68) {
+                            C.x = C.x + 50;
+                            // console.log(C.y,"en", C.x);
+                            // console.log("maxyo",N);
                         }
+                        else if (N > 20 && N <= 29 || N > 52 && N <= 57 || N > 68 && N <= 69) {
+                            C.y = C.y - 50;
+                             // console.log(C.y,"en", C.x);
+                            // console.log("minxo",N);
+                        }
+                        else if (N > 29 && N <= 38 || N > 57 && N <= 62) {
+                            C.x = C.x - 50;
+                             // console.log(C.y,"en", C.x);
+                            // console.log("minyo",N);
+                        }
+                        console.log(N);
+                        console.log(C.y,"en", C.x);
                     }
-                        // redGamePiece.y = redGamePiece.y + uitkomstDb * 60;
-                        // console.log(redGamePiece.y,"en", redGamePiece.x)
-                    break;
+                    N = N - 1;
+                    switch(beurtTeller) {
                     case 1:
-                    var iNum = iYellow + uitkomstDb;
-                    for (;iYellow <= iNum; iYellow++) {
-                        if (iYellow <= 9) {
-                                yellowGamePiece.y = yellowGamePiece.y + 60;
-                                console.log(yellowGamePiece.y,"en", yellowGamePiece.x);
-                                console.log("xoxo");
-                        }
-                        else if (iYellow >= 9) {
-                            yellowGamePiece.x = yellowGamePiece.x + 60;
-                            console.log(yellowGamePiece.y,"en", yellowGamePiece.x);
-                            console.log("yoyo");
-                        }
-                    }
-                        // console.log(yellowGamePiece.y,"en", yellowGamePiece.x)
-                    break;
-                    case 3:
-                    var iNum = iBlue + uitkomstDb;
-                    for (;iBlue <= iNum; iBlue++) {
-                        if (iBlue <= 9) {
-                                blueGamePiece.y = blueGamePiece.y + 60;
-                                console.log(blueGamePiece.y,"en", blueGamePiece.x);
-                                console.log("xoxo");
-                        }
-                        else if (iBlue >= 9) {
-                            blueGamePiece.x = blueGamePiece.x + 60;
-                            console.log(blueGamePiece.y,"en", blueGamePiece.x);
-                            console.log("yoyo");
-                        }
-                    }
-                    break;
-                    case 4:
-                    var iNum = iGreen + uitkomstDb;
-                    for (;iGreen <= iNum; iGreen++) {
-                        if (iGreen <= 9) {
-                                greenGamePiece.y = greenGamePiece.y + 60;
-                                console.log(greenGamePiece.y,"en", greenGamePiece.x);
-                                console.log("xoxo");
-                        }
-                        else if (iGreen >= 9) {
-                            greenGamePiece.x = greenGamePiece.x + 60;
-                            console.log(greenGamePiece.y,"en", greenGamePiece.x);
-                            console.log("yoyo");
-                        }
-                    }
+                        iyellow = iyellow + uitkomstDb;
                     break;
                     default:
-                        alert(beurtTeller);
-                        } 
-                    // console.log(beurtTeller);
-                    console.log(iRed ,"en", iNum);
-        }
+                    case 2:
+                        ired = ired + uitkomstDb;
+                    break;
+                    case 3:
+                        iblue = iblue + uitkomstDb;
+                    break;
+                    case 4:
+                        igreen = igreen + uitkomstDb;
+                    break;
+                        alert("NO");
+}
+                        // redGamePiece.y = redGamePiece.y + uitkomstDb * 60;
+                        // console.log(redGamePiece.y,"en", redGamePiece.x)
+
+        //             case 2:
+        //             var iNum = iyellow + uitkomstDb;
+        //             for (;iyellow <= iNum; iyellow++) {
+        //                 if (iyellow <= 9) {
+        //                         yellowGamePiece.y = yellowGamePiece.y + 60;
+        //                         console.log(yellowGamePiece.y,"en", yellowGamePiece.x);
+        //                         console.log("xoxo");
+        //                 }
+        //                 else if (iyellow >= 9) {
+        //                     yellowGamePiece.x = yellowGamePiece.x + 60;
+        //                     console.log(yellowGamePiece.y,"en", yellowGamePiece.x);
+        //                     console.log("yoyo");
+        //                 }
+        //             }
+        //                 // console.log(yellowGamePiece.y,"en", yellowGamePiece.x)
+        //             break;
+        //             case 3:
+        //             var iNum = iblue + uitkomstDb;
+        //             for (;iblue <= iNum; iblue++) {
+        //                 if (iblue <= 9) {
+        //                         blueGamePiece.y = blueGamePiece.y + 60;
+        //                         console.log(blueGamePiece.y,"en", blueGamePiece.x);
+        //                         console.log("xoxo");
+        //                 }
+        //                 else if (iblue >= 9) {
+        //                     blueGamePiece.x = blueGamePiece.x + 60;
+        //                     console.log(blueGamePiece.y,"en", blueGamePiece.x);
+        //                     console.log("yoyo");
+        //                 }
+        //             }
+        //             break;
+        //             case 4:
+        //             var iNum = igreen + uitkomstDb;
+        //             for (;igreen <= iNum; igreen++) {
+        //                 if (igreen <= 9) {
+        //                         greenGamePiece.y = greenGamePiece.y + 60;
+        //                         console.log(greenGamePiece.y,"en", greenGamePiece.x);
+        //                         console.log("xoxo");
+        //                 }
+        //                 else if (igreen >= 9) {
+        //                     greenGamePiece.x = greenGamePiece.x + 60;
+        //                     console.log(greenGamePiece.y,"en", greenGamePiece.x);
+        //                     console.log("yoyo");
+        //                 }
+        //             }
+        //             break;
+        //             default:
+        //                 alert(beurtTeller);
+        //                 } 
+        //             // console.log(beurtTeller);
+        //             console.log(ired ,"en", iNum);
+         }
 
 // function MyStop() {
 //   redGamePiece.speedY = 0;
