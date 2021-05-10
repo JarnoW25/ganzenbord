@@ -270,22 +270,22 @@ function MyMovement() {
                     for (;N
                      <= iNum; N++) {
                         if (N <= 9 || N > 38 && N <= 45 || N > 62 && N <= 65) {
-                            C.y = C.y + 50;
+                            C.y = C.y + 58;
                             // console.log(C.y,"en", C.x);
                             // console.log("maxxo", N);
                         }
                         else if (N > 9 && N <= 20 || N > 45 && N <= 52 || N > 65 && N <= 68) {
-                            C.x = C.x + 50;
+                            C.x = C.x + 68;
                             // console.log(C.y,"en", C.x);
                             // console.log("maxyo",N);
                         }
                         else if (N > 20 && N <= 29 || N > 52 && N <= 57 || N > 68 && N <= 69) {
-                            C.y = C.y - 50;
+                            C.y = C.y - 58;
                              // console.log(C.y,"en", C.x);
                             // console.log("minxo",N);
                         }
                         else if (N > 29 && N <= 38 || N > 57 && N <= 62) {
-                            C.x = C.x - 50;
+                            C.x = C.x - 68;
                              // console.log(C.y,"en", C.x);
                             // console.log("minyo",N);
                         }
