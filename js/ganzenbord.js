@@ -38,7 +38,7 @@ else{
 //beurt functie
 function beurt() {
 beurtzien();
-uitkomstDb = Math.ceil(Math.random() * 6);
+uitkomstDb = Math.ceil(Math.random() * 1);
 spelervak[beurtTeller] = spelervak[beurtTeller] + uitkomstDb;
   console.log(spelerNaam[beurtTeller] + " heeft " + uitkomstDb + " gegooid en staat nu op " + spelervak[beurtTeller]);
 if (spelervak[beurtTeller] == 69) {
@@ -269,23 +269,66 @@ function MyMovement() {
                     var iNum = N + uitkomstDb;
                     for (;N
                      <= iNum; N++) {
-                        if (N <= 9 || N > 38 && N <= 45 || N > 62 && N <= 65) {
-                            C.y = C.y + 58;
+                        if (N <= 9 ) {
+                            C.y = C.y + 33;
                             // console.log(C.y,"en", C.x);
                             // console.log("maxxo", N);
                         }
+                        else if (N > 38 && N <= 45 || N > 62 && N <= 65) {
+                             C.y = C.y + 35;
+                        }
                         else if (N > 9 && N <= 20 || N > 45 && N <= 52 || N > 65 && N <= 68) {
-                            C.x = C.x + 68;
+                            C.x = C.x + 38;
                             // console.log(C.y,"en", C.x);
                             // console.log("maxyo",N);
                         }
+                        if (N === 20) {
+                        switch(C) {
+                            case yellowGamePiece:
+                                C.y = 637;
+                                C.x = 900;
+                            break;
+                            case redGamePiece:
+                                C.y = 657;
+                                C.x = 900;
+                            break;
+                            case blueGamePiece:
+                                C.y = 637;
+                                C.x = 930;
+                            break;
+                            case greenGamePiece:
+                                C.y = 657;
+                                C.x = 930;
+                            break;
+                        }
+                        }
+                        if (N === 38) {
+                        switch(C) {
+                            case yellowGamePiece:
+                                C.y = 50;
+                                C.x = 250;
+                            break;
+                            case redGamePiece:
+                                C.y = 30;
+                                C.x = 250;
+                            break;
+                            case blueGamePiece:
+                                C.y = 50;
+                                C.x = 220;
+                            break;
+                            case greenGamePiece:
+                                C.y = 30;
+                                C.x = 220;
+                            break;
+                        }
+                        }
                         else if (N > 20 && N <= 29 || N > 52 && N <= 57 || N > 68 && N <= 69) {
-                            C.y = C.y - 58;
+                            C.y = C.y - 35;
                              // console.log(C.y,"en", C.x);
                             // console.log("minxo",N);
                         }
                         else if (N > 29 && N <= 38 || N > 57 && N <= 62) {
-                            C.x = C.x - 68;
+                            C.x = C.x - 38;
                              // console.log(C.y,"en", C.x);
                             // console.log("minyo",N);
                         }
@@ -297,7 +340,7 @@ function MyMovement() {
                     case 1:
                         iyellow = iyellow + uitkomstDb;
                     break;
-                    default:
+                    // default:
                     case 2:
                         ired = ired + uitkomstDb;
                     break;
@@ -309,75 +352,4 @@ function MyMovement() {
                     break;
                         alert("NO");
 }
-                        // redGamePiece.y = redGamePiece.y + uitkomstDb * 60;
-                        // console.log(redGamePiece.y,"en", redGamePiece.x)
-
-        //             case 2:
-        //             var iNum = iyellow + uitkomstDb;
-        //             for (;iyellow <= iNum; iyellow++) {
-        //                 if (iyellow <= 9) {
-        //                         yellowGamePiece.y = yellowGamePiece.y + 60;
-        //                         console.log(yellowGamePiece.y,"en", yellowGamePiece.x);
-        //                         console.log("xoxo");
-        //                 }
-        //                 else if (iyellow >= 9) {
-        //                     yellowGamePiece.x = yellowGamePiece.x + 60;
-        //                     console.log(yellowGamePiece.y,"en", yellowGamePiece.x);
-        //                     console.log("yoyo");
-        //                 }
-        //             }
-        //                 // console.log(yellowGamePiece.y,"en", yellowGamePiece.x)
-        //             break;
-        //             case 3:
-        //             var iNum = iblue + uitkomstDb;
-        //             for (;iblue <= iNum; iblue++) {
-        //                 if (iblue <= 9) {
-        //                         blueGamePiece.y = blueGamePiece.y + 60;
-        //                         console.log(blueGamePiece.y,"en", blueGamePiece.x);
-        //                         console.log("xoxo");
-        //                 }
-        //                 else if (iblue >= 9) {
-        //                     blueGamePiece.x = blueGamePiece.x + 60;
-        //                     console.log(blueGamePiece.y,"en", blueGamePiece.x);
-        //                     console.log("yoyo");
-        //                 }
-        //             }
-        //             break;
-        //             case 4:
-        //             var iNum = igreen + uitkomstDb;
-        //             for (;igreen <= iNum; igreen++) {
-        //                 if (igreen <= 9) {
-        //                         greenGamePiece.y = greenGamePiece.y + 60;
-        //                         console.log(greenGamePiece.y,"en", greenGamePiece.x);
-        //                         console.log("xoxo");
-        //                 }
-        //                 else if (igreen >= 9) {
-        //                     greenGamePiece.x = greenGamePiece.x + 60;
-        //                     console.log(greenGamePiece.y,"en", greenGamePiece.x);
-        //                     console.log("yoyo");
-        //                 }
-        //             }
-        //             break;
-        //             default:
-        //                 alert(beurtTeller);
-        //                 } 
-        //             // console.log(beurtTeller);
-        //             console.log(ired ,"en", iNum);
-         }
-
-// function MyStop() {
-//   redGamePiece.speedY = 0;
-//   redGamePiece.speedX = 0;
-//   yellowGamePiece.speedY = 0;
-//   yellowGamePiece.speedX = 0;
-//   blueGamePiece.speedY = 0;
-//   blueGamePiece.speedX = 0;
-//   greenGamePiece.speedY = 0;
-//   greenGamePiece.speedX = 0;
-// }
-
-// function dobbelgooien() {
-//     beurt(3);
-//     MyMovement();
-//     setTimeout(MyStop, 2150);
-// }
+}
